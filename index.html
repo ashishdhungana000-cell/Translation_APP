@@ -3,11 +3,11 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>VoiceFlow | EN-FI Translator</title>
-    <link rel="stylesheet" href="index.css">
+    <title>Voice Translator | EN-FI</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="index.css">
 </head>
 <body>
     <div class="background-blobs">
@@ -16,50 +16,48 @@
         <div class="blob blob-3"></div>
     </div>
 
-    <main class="app-container">
+    <main class="container">
         <header>
-            <div class="logo">
-                <span class="pulse"></span>
-                <h1>VoiceFlow</h1>
-            </div>
-            <p class="subtitle">Instant Voice Translation</p>
+            <h1>Voice Translator</h1>
+            <p>Listen and translate instantly</p>
         </header>
 
-        <section class="controls">
-            <div class="toggle-container">
-                <span id="label-en" class="lang-label active">English</span>
-                <label class="switch">
-                    <input type="checkbox" id="lang-toggle">
-                    <span class="slider round"></span>
-                </label>
-                <span id="label-fi" class="lang-label">Finnish</span>
-            </div>
-            
-            <button id="mic-btn" class="mic-btn">
-                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                    <path d="M12 1a3 3 0 0 0-3 3v8a3 3 0 0 0 6 0V4a3 3 0 0 0-3-3z"></path>
-                    <path d="M19 10v2a7 7 0 0 1-14 0v-2"></path>
-                    <line x1="12" y1="19" x2="12" y2="23"></line>
-                    <line x1="8" y1="23" x2="16" y2="23"></line>
-                </svg>
-                <span class="btn-text">Start Listening</span>
-            </button>
-        </section>
-
-        <section class="display-area">
-            <div class="card recognition-card">
-                <h3>Listening...</h3>
-                <p id="transcript" class="content-text placeholder">Your speech will appear here...</p>
-            </div>
-            
-            <div class="divider">
-                <div class="arrow-down"></div>
+        <section class="translator-card">
+            <div class="controls">
+                <div class="toggle-container">
+                    <span class="lang-label">English</span>
+                    <label class="switch">
+                        <input type="checkbox" id="language-toggle">
+                        <span class="slider round"></span>
+                    </label>
+                    <span class="lang-label">Finnish</span>
+                </div>
+                
+                <div class="mode-indicator">
+                    <span id="current-mode">English to Finnish</span>
+                </div>
             </div>
 
-            <div class="card translation-card">
-                <h3>Translation</h3>
-                <p id="translation" class="content-text placeholder">Translation will appear here...</p>
-                <div id="loader" class="loader hidden"></div>
+            <div class="text-areas">
+                <div class="input-group">
+                    <label for="input-text">Voice Input</label>
+                    <div id="input-text" class="text-display" placeholder="Speak something..."></div>
+                </div>
+                <div class="output-group">
+                    <label for="output-text">Translation</label>
+                    <div id="output-text" class="text-display result" placeholder="Translation will appear here..."></div>
+                </div>
+            </div>
+
+            <div class="actions">
+                <button id="listen-btn" class="btn-primary">
+                    <span class="icon">🎤</span>
+                    <span class="btn-text">Start Listening</span>
+                </button>
+                <div id="listening-indicator" class="hidden">
+                    <div class="pulse"></div>
+                    <span>Listening...</span>
+                </div>
             </div>
         </section>
 
